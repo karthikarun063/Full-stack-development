@@ -1,0 +1,58 @@
+<nav class="absolute w-full top-0 left-0 h-full z-50 {{this.isSidebarShowing ? 'flex' : 'hidden'}}">
+    <div class="bg-white w-full md:max-sm shadow-2xl">
+        <div class="flex justify-end p-5">
+            <svg (click)="this.closeSidebar()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>              
+        </div>
+        <div>
+            <div class="mt-3"><app-phone></app-phone></div>
+            <div class="mt-3"><app-email></app-email></div>
+            <div class="mt-6"><app-auth-links></app-auth-links></div>
+            <div class="mt-6">
+                <app-memu></app-memu>
+            </div>
+            <div class="mt-6"><app-social-links></app-social-links></div>
+        </div>
+    </div>
+    <div (click)="this.closeSidebar()" class="bg-slate-900 hidden md:block md:w-full opacity-60">
+    </div>
+</nav>
+
+<header class="absolute w-full">
+    <div class="bg-slate-800 hidden lg:block">
+        <div class="container text-white py-2">
+            <ul class="flex justify-between">
+                <li>All cousres 20% off for <span class="text-emerald-500">liberion people's</span></li>
+                <li>
+                    <img src="assets/shapes/shape-1.webp" alt="image">                
+                </li>
+                <app-phone></app-phone>
+                <app-email></app-email>        
+                <li>
+                    <img src="assets/shapes/shape-2.webp" alt="image">                        
+                </li>
+                <li>
+                    <app-social-links></app-social-links>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class=" px-5 {{ isMenuScrolled ? 'fixed top-0 w-full bg-white shadow-xl animate-slide animate-fast' : 'pt-10'}}">
+        <div class="flex py-5 items-center justify-between container {{isMenuScrolled ? '' : 'border'}} border-emerald-500 rounded-xl border-opacity-30">
+            <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                  </svg>              
+            </a>
+            <div class="lg:hidden">
+                <svg (click)="this.openSidebar()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                  </svg>                  
+            </div>
+            <app-memu class="hidden lg:block"></app-memu>
+            <app-auth-links class="hidden lg:block"></app-auth-links>
+        </div>
+    </div>
+</header>
+<router-outlet></router-outlet>
